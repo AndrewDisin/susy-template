@@ -2,7 +2,7 @@
 
 1. Clone the repo 
 
-$ git clone 
+$ git clone https://github.com/AndrewDisin/susy-template.git
 
 2. Install Node dependencies 
 
