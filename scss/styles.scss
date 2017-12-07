@@ -1,0 +1,87 @@
+@import "normalize";
+@import "../bower_components/susy/sass/susy";
+@import "../bower_components/breakpoint-sass/stylesheets/breakpoint";
+
+$xs: 768px;
+
+$susy: (
+  columns: 12, 
+  container: 1140px,
+  gutters: 0.25,
+  global-box-sizing: border-box,
+  // debug: (image: show-columns),
+  gutter-position: inside
+  );
+
+.header, .footer {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  @include span(12);
+  background-color: #aaa;
+  .container{
+    background-color: #aaa;
+  }
+}
+
+
+.header {
+  &__text {
+    @include span(12);
+    text-align: center;
+    margin-bottom: 20px;
+    padding-top: 20px;
+  }
+}
+
+.footer {
+  &__text{
+    @include span(12);
+    text-align: center;
+    margin-bottom: 20px;
+    padding-top: 20px;
+  }
+}
+
+
+main{
+  margin: 0 auto;
+  max-width: 992px;
+}
+
+.container{
+  display: flex;
+  @include container(992px);
+  background-color: green;
+  @include span(12);
+}  
+
+.asside {
+  padding: 20px;
+  display: none;
+  @include breakpoint(992px){
+    display: block;
+    @include span(4);
+  }
+  &__title{
+    color: #000;
+    @include span(12)
+    text-align: center;
+  }
+  &__info{
+    color: #aaa;
+    font-size: 16px;
+  }
+}
+
+.page-content {
+  padding: 20px;
+  background-color: red;
+  @include span(12);
+  @include breakpoint(992px){
+    @include span(8 last);
+  }
+  &__title{
+
+  }
+}
