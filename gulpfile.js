@@ -17,7 +17,7 @@ gulp.task('browser-sync', function() {
 
 // Gulp Sass Task 
 gulp.task('sass', function() {
-  gulp.src('./scss/{,*/}*.{scss,sass}')
+  gulp.src('./dev/scss/{,*/}*.{scss,sass}')
     .pipe(sourcemaps.init())
     .pipe(sass({
       errLogToConsole: true
@@ -30,23 +30,23 @@ gulp.task('sass', function() {
 
 // Gulp JS Task
 gulp.task('js', function () {
-    return gulp.src('js/*.js')
+    return gulp.src('./dev/*.js')
         .pipe(uglify())
         .pipe(gulp.dest('app/js'));
 });
 
 // Gulp html Task
 gulp.task('html', function () {
-    gulp.src('*.html')
+    gulp.src('./dev/*.html')
     .pipe(gulp.dest('app'))
     .pipe(browserSync.reload({stream: true}));
 });
 
 // Watch
 gulp.task('watch', ['sass', 'js', 'html', 'browser-sync'], function () {
-	gulp.watch('./scss/{,*/}*.{scss,sass}', ['sass']);
-  	gulp.watch('js/*.js', ['js']);
-  	gulp.watch('index.html', ['html']);
+	gulp.watch('./dev/scss/{,*/}*.{scss,sass}', ['sass']);
+  	gulp.watch('./dev/js/*.js', ['js']);
+  	gulp.watch('./dev/index.html', ['html']);
 });
 
 

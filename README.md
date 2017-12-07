@@ -1,6 +1,6 @@
  Gulp Susy Starter  
 
-1. Clone the repo 
+1. Clone the repository 
 
 $ git clone https://github.com/AndrewDisin/susy-template.git
 
