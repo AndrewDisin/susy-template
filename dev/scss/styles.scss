@@ -2,16 +2,21 @@
 @import "../../bower_components/susy/sass/susy";
 @import "../../bower_components/breakpoint-sass/stylesheets/breakpoint";
 
-$xs: 768px;
+$sm: 544px;                       // Small screen / phone
+$md: 768px;                       // Medium screen / tablet
+$lg: 992px;                       // Large screen / desktop
+$xl: 1200px;                      // Extra large screen desktop
+$xxl: 1440px;                     // Wide desktop
 
 $susy: (
   columns: 12, 
-  container: 1140px,
-  gutters: 0.25,
-  global-box-sizing: border-box,
+  container: 1024px,
+  gutters: 0,
+  box-sizing: border-box,
   // debug: (image: show-columns),
   gutter-position: inside
   );
+
 
 .header, .footer {
   display: flex;
@@ -46,31 +51,50 @@ $susy: (
 
 main{
   margin: 0 auto;
-  max-width: 992px;
+  max-width: 1024px;
 }
 
 .container{
   display: flex;
-  @include container(992px);
+  flex-wrap: wrap;
+  @include container();
   background-color: green;
   @include span(12);
 }  
 
-.asside {
+.colunm {
+  @include span(12);
   padding: 20px;
-  display: none;
-  @include breakpoint(992px){
-    display: block;
+  @include breakpoint($lg){
     @include span(4);
   }
   &__title{
     color: #000;
-    @include span(12)
+    @include span(12);
     text-align: center;
   }
   &__info{
     color: #aaa;
+    @include span(12);
     font-size: 16px;
+  }
+}
+
+.colunm-list{
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  @include span(12);
+  &__item{
+   @include breakpoint($sm){
+      @include span(6);
+    }
+    @include span(12);
+    background-color: yellow;
+    color: #000;
+    line-height: 50px;
+    text-align: center;
+    outline: 1px solid #000;
   }
 }
 
@@ -78,10 +102,12 @@ main{
   padding: 20px;
   background-color: red;
   @include span(12);
-  @include breakpoint(992px){
-    @include span(8 last);
+  @include breakpoint($lg){
+    @include span(8);
   }
   &__title{
-
+    color: #000;
+    @include span(12)
+    text-align: left;
   }
 }
